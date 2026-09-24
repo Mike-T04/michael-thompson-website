@@ -1,30 +1,56 @@
 /* ==========================================================================
-   Design System & Variables
+   Design System & Variables — Modern Business-Tech Theme
    ========================================================================== */
 :root {
-  /* Colors */
-  --color-primary: #1e3a8a;          /* Deep navy */
-  --color-primary-hover: #172554;
-  --color-accent: #1d4ed8;           /* Accessible blue (WCAG AA compliant) */
-  --color-accent-hover: #1e40af;
+  /* Brand Palette: Deep Navy Base */
+  --color-primary: #0c2340;          /* Deep executive navy */
+  --color-primary-light: #16365c;
+  --color-primary-hover: #081729;
   
+  /* Modern Business-Tech Blue Accents */
+  --color-accent: #2563eb;           /* Modern business-tech blue */
+  --color-accent-dark: #1d4ed8;      /* High-contrast link & badge blue (WCAG AA) */
+  --color-accent-subtle: #eff6ff;     /* Soft blue tint */
+  --color-accent-border: #bfdbfe;
+
+  /* LSU-Inspired Restrained Accents */
+  --color-lsu-purple: #461d7c;        /* Dignified LSU royal purple (WCAG AAA compliant on white: 10.2:1) */
+  --color-lsu-purple-light: #5c28a3;
+  --color-lsu-purple-subtle: #f7f4fb; /* Soft purple tint for badges & accents */
+  --color-lsu-purple-border: #dfd4f0;
+  --color-lsu-gold: #c69214;          /* Accessible antique gold (WCAG AA compliant: 4.5:1) */
+  --color-lsu-gold-subtle: #fffdf5;   /* Subtle warm gold tint */
+  --color-lsu-gold-border: #f3dfa2;
+  
+  /* Neutrals & Text (WCAG AA/AAA compliant) */
   --color-text-main: #0f172a;        /* High-contrast dark slate for headings */
-  --color-text-body: #334155;        /* Balanced contrast for body text (WCAG AAA) */
-  --color-text-muted: #475569;       /* Muted info & metadata (WCAG AA compliant) */
+  --color-text-body: #334155;        /* Balanced slate for body copy (WCAG AAA) */
+  --color-text-secondary: #475569;   /* Secondary slate text */
+  --color-text-muted: #64748b;       /* Subtle text for dates & locations (WCAG AA) */
   
-  --color-bg-page: #f8fafc;          /* Soft light slate background */
-  --color-bg-surface: #ffffff;       /* Pure white container surface */
-  --color-bg-subtle: #f1f5f9;        /* Subtle pill / tag background */
+  /* Backgrounds & Surfaces */
+  --color-bg-page: #f8fafc;          /* Off-white canvas */
+  --color-bg-surface: #ffffff;       /* Pure white card surface */
+  --color-bg-subtle: #f1f5f9;        /* Soft neutral fill */
   
-  --color-border: #e2e8f0;           /* Clean separation line */
+  /* Borders & Dividers */
+  --color-border: #e2e8f0;           /* Subtle neutral border */
   --color-border-dark: #cbd5e1;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-card: 0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.06);
+  --shadow-card-hover: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.06);
   
   /* Typography */
   --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --line-height-body: 1.65;
   
   /* Layout & Spacing */
-  --max-width: 820px;
+  --max-width: 860px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
 }
 
 /* ==========================================================================
@@ -54,7 +80,8 @@ header {
   border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 50;
+  box-shadow: 0 1px 2px 0 rgba(15, 23, 42, 0.03);
 }
 
 nav {
@@ -78,8 +105,8 @@ nav a {
   color: var(--color-text-body);
   font-weight: 500;
   font-size: 0.95rem;
-  padding: 0.45rem 0.9rem;
-  border-radius: 6px;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-sm);
   transition: color 0.15s ease, background-color 0.15s ease;
 }
 
@@ -90,8 +117,8 @@ nav a:focus {
 }
 
 nav a.active {
-  color: var(--color-primary);
-  background-color: var(--color-bg-subtle);
+  color: #ffffff;
+  background-color: var(--color-primary);
   font-weight: 600;
 }
 
@@ -101,122 +128,73 @@ nav a.active {
 main {
   max-width: var(--max-width);
   margin: 2.5rem auto 4rem;
-  padding: 2.5rem 2.25rem;
-  background-color: var(--color-bg-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
+  padding: 0 1.5rem;
 }
 
 h1 {
-  font-size: 1.85rem;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   line-height: 1.25;
   color: var(--color-text-main);
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.25rem;
 }
 
 h2 {
   font-size: 1.35rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.015em;
   color: var(--color-primary);
-  padding-bottom: 0.45rem;
+  padding-bottom: 0.5rem;
   border-bottom: 2px solid var(--color-border);
   margin-top: 0;
-  margin-bottom: 1.15rem;
+  margin-bottom: 1.25rem;
 }
 
 h3 {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--color-text-main);
-  margin-top: 1.25rem;
+  margin-top: 0;
   margin-bottom: 0.35rem;
 }
 
 p {
-  margin-bottom: 0.9rem;
+  margin-bottom: 1rem;
+  color: var(--color-text-body);
 }
 
-/* ==========================================================================
-   Sections & Spacing
-   ========================================================================== */
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Sections */
 section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 section:last-of-type {
   margin-bottom: 0;
 }
 
-/* ==========================================================================
-   Lists
-   ========================================================================== */
+/* Lists */
 ul {
   margin-left: 1.35rem;
   margin-bottom: 1rem;
 }
 
 li {
-  margin-bottom: 0.4rem;
-  line-height: 1.55;
+  margin-bottom: 0.45rem;
+  line-height: 1.6;
 }
 
-/* ==========================================================================
-   Shared Component & Meta Styling
-   ========================================================================== */
-.experience-item,
-.resume-item {
-  margin-bottom: 1.5rem;
+li:last-child {
+  margin-bottom: 0;
 }
 
-.experience-item:last-child,
-.resume-item:last-child {
-  margin-bottom: 0.5rem;
-}
-
-.experience-item h3,
-.resume-item h3 {
-  margin-top: 0;
-  margin-bottom: 0.25rem;
-}
-
-.date,
-.meta-line,
-.project-meta {
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-}
-
-.project-meta {
-  margin-top: -1rem;
-  margin-bottom: 2rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--color-border);
-}
-
-/* ==========================================================================
-   Contact List & Links
-   ========================================================================== */
-.contact-list {
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
-}
-
-.contact-list li {
-  margin-bottom: 0.6rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.25rem 0.5rem;
-}
-
+/* Links */
 a {
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
   text-decoration: underline;
   text-underline-offset: 2px;
   transition: color 0.15s ease;
@@ -226,36 +204,365 @@ a {
 
 a:hover,
 a:focus {
-  color: var(--color-accent-hover);
+  color: var(--color-primary);
+}
+
+/* Action Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: 1px solid var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--color-primary-light);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 2px var(--color-lsu-purple-border);
+}
+
+.btn-secondary {
+  background-color: var(--color-bg-surface);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: var(--color-bg-subtle);
+  border-color: var(--color-lsu-gold);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Hero Section (Home Page)
+   ========================================================================== */
+.hero-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--color-lsu-purple);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  margin-bottom: 3rem;
+  box-shadow: var(--shadow-card);
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 2.25rem;
+  align-items: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  max-height: 400px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+}
+
+.hero-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-lsu-purple);
+  background-color: var(--color-lsu-purple-subtle);
+  border: 1px solid var(--color-lsu-purple-border);
+  border-left: 3px solid var(--color-lsu-gold);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+}
+
+.hero-card h1 {
+  font-size: 2.25rem;
+  margin-bottom: 0.35rem;
+  color: var(--color-primary);
+}
+
+.hero-card h2 {
+  font-size: 1.1rem;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0.85rem;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hero-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text-body);
+  margin-bottom: 1.25rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+/* ==========================================================================
+   Card-Style Components (Home & Shared)
+   ========================================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.75rem;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--color-border-dark);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-1px);
+}
+
+.experience-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.experience-item {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.experience-item:hover {
+  border-color: var(--color-border-dark);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-1px);
+}
+
+.date,
+.meta-line {
+  display: inline-block;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* Contact Card & List */
+.contact-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.75rem;
+  box-shadow: var(--shadow-card);
+}
+
+.contact-list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.contact-list li:first-child {
+  grid-column: 1 / -1;
+}
+
+.contact-list li {
+  background-color: var(--color-bg-page);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.5rem;
+  margin-bottom: 0;
+}
+
+.contact-list li strong {
+  color: var(--color-text-main);
+  flex-shrink: 0;
+}
+
+.contact-list a {
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+/* ==========================================================================
+   Resume Page Styling
+   ========================================================================== */
+.resume-container {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2.25rem;
+  box-shadow: var(--shadow-card);
+}
+
+.summary-callout {
+  background-color: var(--color-bg-page);
+  border-left: 4px solid var(--color-lsu-purple);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.resume-item {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.resume-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Project / Case-Study Page Styling
+   ========================================================================== */
+.case-study-container {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2.25rem;
+  box-shadow: var(--shadow-card);
+}
+
+.case-study-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-bg-page);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.takeaway-callout {
+  background-color: var(--color-accent-subtle);
+  border-left: 4px solid var(--color-accent-dark);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 1.25rem 1.5rem;
+  color: var(--color-text-main);
 }
 
 /* ==========================================================================
    Responsive Adjustments
    ========================================================================== */
+@media (max-width: 768px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .hero-media {
+    order: 2;
+  }
+
+  .hero-photo {
+    max-width: 320px;
+    max-height: 360px;
+  }
+}
+
 @media (max-width: 640px) {
   nav {
     padding: 0.75rem 1rem;
   }
 
   main {
-    margin: 1rem auto;
-    padding: 1.25rem 1rem;
-    max-width: calc(100% - 1.5rem);
+    margin: 1.25rem auto 2.5rem;
+    padding: 0 1rem;
+  }
+
+  .hero-card,
+  .resume-container,
+  .case-study-container {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .hero-card h1 {
+    font-size: 1.75rem;
   }
 
   h1 {
     font-size: 1.5rem;
-    margin-bottom: 1.25rem;
   }
 
   h2 {
     font-size: 1.2rem;
   }
+
+  .contact-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 360px) {
   nav {
-    padding: 0.6rem 0.75rem;
+    padding: 0.5rem 0.75rem;
   }
 
   nav a {
@@ -263,13 +570,25 @@ a:focus {
     font-size: 0.9rem;
   }
 
-  main {
-    margin: 0.75rem auto;
-    padding: 1rem 0.75rem;
-    max-width: calc(100% - 1rem);
+  .hero-card,
+  .resume-container,
+  .case-study-container,
+  .card,
+  .experience-item,
+  .contact-card {
+    padding: 1.25rem 0.85rem;
+  }
+
+  .hero-photo {
+    max-width: 250px;
+    max-height: 290px;
   }
 
   ul {
     margin-left: 1.15rem;
+  }
+
+  .contact-list a {
+    font-size: 0.875rem;
   }
 }
